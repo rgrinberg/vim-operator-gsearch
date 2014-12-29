@@ -1,3 +1,4 @@
+" default values for settings {{{
 if !exists("g:gsearch_ag_command")
   let g:gsearch_ag_command = 'Ag! -Q'
 endif
@@ -9,7 +10,8 @@ endif
 if !exists("g:gsearch_ctrlsf_command")
   let g:gsearch_ctrlsf_command = 'CtrlSF -Q'
 endif
-
+"}}}
+" operators {{{
 function! operator#gsearch#ggrep(motion_wise)
   call s:search_cmd('Ggrep', a:motion_wise)
 endfunction
@@ -25,7 +27,8 @@ endfunction
 function! operator#gsearch#ctrlsf(motion_wise)
   call s:search_cmd(g:gsearch_ctrlsf_command, a:motion_wise)
 endfunction
-
+"}}}
+" internal {{{
 function! s:search_cmd(cmd, motion_wise)
   execute a:cmd . ' ' . shellescape(s:operator_sel(a:motion_wise))
 endfunction
@@ -45,3 +48,4 @@ function! s:get_visual_selection()
   let lines[0] = lines[0][col1 - 1:]
   return join(lines, "\n")
 endfunction
+"}}}
