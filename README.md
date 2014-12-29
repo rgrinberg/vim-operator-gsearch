@@ -22,10 +22,10 @@ map g? <Plug>(operator-ggrep)
 
 ## Customization
 
-You can customize the ag, ack, ctrlsf, command if you'd like. The most common
+You can customize the Ag, Ack, CtrlSF, command if you'd like. The most common
 customizations would be:
 
-* to use regexes rather than treating search query as a literal.
+* Use regexes rather than treating search query as a literal.
 
 ```
 let g:gsearch_ag_command = 'Ag!'
