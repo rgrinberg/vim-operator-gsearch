@@ -2,7 +2,7 @@
 
 ## Installation
 
-* Install [kana's operator](https://github.com/kana/vim-operator-user) plugin
+* Install [kana's operator plugin](https://github.com/kana/vim-operator-user)
 
 * Install this plugin
 
