@@ -1,4 +1,4 @@
-# Operator to search using Ag/Ack/CtrlSF/Ggrep
+# Custom Operator to Search Using Ag/Ack/CrlSF/etc
 
 ## Installation
 
