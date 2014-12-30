@@ -35,8 +35,9 @@ endfunction
 
 function! s:operator_sel(motion_wise)
   let v = operator#user#visual_command_from_wise_name(a:motion_wise)
-  execute 'normal!' '`[' . v . '`]'
-  return s:get_visual_selection()
+  execute 'normal!' '`[' . v . '`]"ky'
+  " return s:get_visual_selection()
+  return getreg('k')
 endfunction
 
 " Stolen from: http://stackoverflow.com/questions/1533565/how-to-get-visually-selected-text-in-vimscript
