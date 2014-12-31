@@ -13,24 +13,36 @@ endif
 "}}}
 " operators {{{
 function! operator#gsearch#ggrep(motion_wise)
-  call s:search_cmd('Ggrep', a:motion_wise)
+  call s:search_cmd_quote('Ggrep', a:motion_wise)
 endfunction
 
 function! operator#gsearch#ag(motion_wise)
-  call s:search_cmd(g:gsearch_ag_command, a:motion_wise)
+  call s:search_cmd_quote(g:gsearch_ag_command, a:motion_wise)
 endfunction
 
 function! operator#gsearch#ack(motion_wise)
-  call s:search_cmd(g:gsearch_ack_command, a:motion_wise)
+  call s:search_cmd_quote(g:gsearch_ack_command, a:motion_wise)
 endfunction
 
 function! operator#gsearch#ctrlsf(motion_wise)
-  call s:search_cmd(g:gsearch_ctrlsf_command, a:motion_wise)
+  call s:search_cmd_quote(g:gsearch_ctrlsf_command, a:motion_wise)
+endfunction
+
+function! operator#gsearch#dash(motion_wise)
+  call s:search_cmd('Dash', a:motion_wise)
+endfunction
+
+function! operator#gsearch#helpgrep(motion_wise)
+  call s:search_cmd('helpgrep', a:motion_wise)
 endfunction
 "}}}
 " internal {{{
+function! s:search_cmd_quote(cmd, motion_wise)
+  execute a:cmd . ' ' . shellescape(fnameescape(s:operator_sel(a:motion_wise)))
+endfunction
+
 function! s:search_cmd(cmd, motion_wise)
-  execute a:cmd . ' ' . shellescape(s:operator_sel(a:motion_wise))
+  execute a:cmd . ' ' . fnameescape(s:operator_sel(a:motion_wise))
 endfunction
 
 function! s:operator_sel(motion_wise)
