@@ -13,7 +13,7 @@
 ```
 map g/ <Plug>(operator-ag) " or ack/ctrlsf
 map g? <Plug>(operator-ggrep)
-map gh <plug>(operator-helpgrep) "or Dash if you use that
+map gh <plug>(operator-helpgrep) "or dash if you use that
 ```
 
 * The most useful way to use this plugin is using the visual mode mapping. E.g.
