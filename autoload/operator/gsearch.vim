@@ -16,6 +16,10 @@ function! operator#gsearch#ggrep(motion_wise)
   call s:search_cmd_quote('Ggrep', a:motion_wise)
 endfunction
 
+function! operator#gsearch#ag_word(motion_wise)
+  call s:search_cmd_quote(g:gsearch_ag_command . ' -w', a:motion_wise)
+endfunction
+
 function! operator#gsearch#ag(motion_wise)
   call s:search_cmd_quote(g:gsearch_ag_command, a:motion_wise)
 endfunction
