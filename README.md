@@ -13,6 +13,7 @@
 ```
 map g/ <Plug>(operator-ag) " or ack/ctrlsf
 map g? <Plug>(operator-ggrep)
+map gw <Plug>(operator-ag-word)
 map gh <plug>(operator-helpgrep) "or dash if you use that
 ```
 
