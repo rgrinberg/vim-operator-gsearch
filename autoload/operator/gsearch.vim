@@ -42,7 +42,7 @@ endfunction
 "}}}
 " internal {{{
 function! s:search_cmd_quote(cmd, motion_wise)
-  execute a:cmd . ' ' . shellescape(fnameescape(s:operator_sel(a:motion_wise)))
+  execute a:cmd . ' ' . s:ag_quote(s:operator_sel(a:motion_wise))
 endfunction
 
 function! s:search_cmd(cmd, motion_wise)
@@ -57,6 +57,7 @@ function! s:operator_sel(motion_wise)
 endfunction
 
 " Stolen from: http://stackoverflow.com/questions/1533565/how-to-get-visually-selected-text-in-vimscript
+" currently not used as we are pasting to a random register instead
 function! s:get_visual_selection()
   let [lnum1, col1] = getpos("'<")[1:2]
   let [lnum2, col2] = getpos("'>")[1:2]
@@ -66,3 +67,9 @@ function! s:get_visual_selection()
   return join(lines, "\n")
 endfunction
 "}}}
+
+function! s:ag_quote(str)
+  " This was old escaping mechanism
+  " return shellescape(fnameescape(str))
+  return escape(fnameescape(escape(a:str, '#%')), '()')
+endfunction
