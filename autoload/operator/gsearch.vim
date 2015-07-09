@@ -8,7 +8,7 @@ if !exists("g:gsearch_ack_command")
 endif
 
 if !exists("g:gsearch_ctrlsf_command")
-  let g:gsearch_ctrlsf_command = 'CtrlSF -Q'
+  let g:gsearch_ctrlsf_command = 'CtrlSF'
 endif
 "}}}
 " operators {{{
